@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+class ProfitAnalysisDetailPagePage extends StatefulWidget {
+  const ProfitAnalysisDetailPagePage({super.key});
+
+  @override
+  State<ProfitAnalysisDetailPagePage> createState() => _ProfitAnalysisDetailPagePageState();
+}
+
+class _ProfitAnalysisDetailPagePageState extends State<ProfitAnalysisDetailPagePage> {
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text(
+          '报表明细',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        // backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [],
+        // 移除AppBar的阴影
+        centerTitle: true,
+      ),
+      body: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width+360,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/dlbb2.png'),
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+}
