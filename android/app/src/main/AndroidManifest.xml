@@ -21,8 +21,8 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:label="晟能新能源云"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- android:name="${applicationName}" -->
 
         <activity
             android:name=".MainActivity"

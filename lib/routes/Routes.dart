@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:suncloudm/View/HomeView/white_page.dart';
 import 'package:suncloudm/View/LogView/editpassword_page.dart';
 import 'package:suncloudm/View/LogView/test_page.dart';
+import 'package:suncloudm/View/OAM/oam_message/alarm_message_page.dart';
+import 'package:suncloudm/View/OAM/oam_message/work_notification_page.dart';
 import 'package:suncloudm/View/OAM/oam_mine/opl_operationteam_detail_page.dart';
 import 'package:suncloudm/View/OAM/oam_mine/opl_operationteam_page.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/opl_dataAnalysis.dart';
@@ -125,6 +127,9 @@ class Routes {
   static const testpage = '/testpage';
 
   static const oplDataAnalysis = '/oplDataAnalysis';
+
+  static const alarmMessagePage = '/alarmMessagePage';
+  static const workNotificationPage = '/workNotificationPage';
 
   void _config() {
     router.define(whitePage,
@@ -300,6 +305,16 @@ class Routes {
         handler: Handler(handlerFunc: (context, params) {
       return OpWorkinfoPage(params['str']![0]);
     }));
+
+    //告警消息列表
+    router.define(alarmMessagePage,
+        handler: Handler(
+            handlerFunc: (context, params) => const AlarmMessagePage()));
+
+    //工单消息列表
+    router.define(workNotificationPage,
+        handler: Handler(
+            handlerFunc: (context, params) => const WorkNotificationPage()));
 
     router.define(oplWorkschedule,
         handler: Handler(

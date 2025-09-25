@@ -123,7 +123,7 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                     style: TextStyle(
                                         color: projectInfo["statusMsg"] ==
                                                 S.current.normal
-                                            ? Color(0xFF42D77D)
+                                            ? const Color(0xFF42D77D)
                                             : projectInfo["statusMsg"] ==
                                                     S.current.offline
                                                 ? Colors.grey
@@ -232,7 +232,7 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                           style: TextStyle(
                                               color: pvInfo["statusMsg"] ==
                                                       S.current.normal
-                                                  ? Color(0xFF42D77D)
+                                                  ? const Color(0xFF42D77D)
                                                   : pvInfo["statusMsg"] ==
                                                           S.current.offline
                                                       ? Colors.grey
@@ -330,7 +330,7 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "站点名称",
                                           style: TextStyle(
                                               color: Color(0xFF8693AB)),
@@ -338,12 +338,12 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                         Text(cnInfo['stationName'] ?? '--')
                                       ],
                                     ),
-                                    SizedBox(height: 6),
+                                    const SizedBox(height: 6),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "站点状态",
                                           style: TextStyle(
                                               color: Color(0xFF8693AB)),
@@ -353,7 +353,7 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                           style: TextStyle(
                                               color: cnInfo["statusMsg"] ==
                                                       S.current.normal
-                                                  ? Color(0xFF42D77D)
+                                                  ? const Color(0xFF42D77D)
                                                   : cnInfo["statusMsg"] ==
                                                           S.current.offline
                                                       ? Colors.grey
@@ -361,12 +361,12 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 6),
+                                    const SizedBox(height: 6),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "额定容量(kW)",
                                           style: TextStyle(
                                               color: Color(0xFF8693AB)),
@@ -402,12 +402,12 @@ class _ProjectdetailPageState extends State<ProjectdetailPage> {
                                     //     Text(cnInfo['typeName'] ?? '--')
                                     //   ],
                                     // ),
-                                    SizedBox(height: 6),
+                                    const SizedBox(height: 6),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "接入设备",
                                           style: TextStyle(
                                               color: Color(0xFF8693AB)),

@@ -11,7 +11,6 @@ class OpHomePage extends StatefulWidget {
 }
 
 class _OpHomePageState extends State<OpHomePage> {
-  // 假设这是从 API 或其他地方获取的班组列表
   int _selectedIndex = -1; // 初始化未选中任何按钮
 
   Map pageInfoData = {};

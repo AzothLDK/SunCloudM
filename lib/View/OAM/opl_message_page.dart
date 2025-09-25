@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suncloudm/routes/Routes.dart';
 
 class OplMessagePage extends StatefulWidget {
   const OplMessagePage({super.key});
@@ -158,54 +159,67 @@ class _OplMessagePageState extends State<OplMessagePage> {
         ),
         Expanded(
           child: Column(children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10), // 设置圆角半径为10
-              ),
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/workmessageIcon.png'),
+            InkWell(
+              onTap: () {
+                // 处理点击事件
+                Routes.instance!.navigateTo(context, Routes.alarmMessagePage);
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10), // 设置圆角半径为10
                 ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('告警消息'),
-                    const Text('12:00',
-                        style: TextStyle(color: Color(0xFF8692A3))),
-                  ],
+                child: ListTile(
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('assets/workmessageIcon.png'),
+                  ),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('告警消息'),
+                      const Text('12:00',
+                          style: TextStyle(color: Color(0xFF8692A3))),
+                    ],
+                  ),
+                  subtitle: const Text(
+                    '告警内容',
+                    style: TextStyle(color: Color(0xFF8692A3)),
+                  ),
+                  // trailing: const Icon(Icons.arrow_forward_ios),
                 ),
-                subtitle: const Text(
-                  '告警内容',
-                  style: TextStyle(color: Color(0xFF8692A3)),
-                ),
-                // trailing: const Icon(Icons.arrow_forward_ios),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10), // 设置圆角半径为10
-              ),
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/workmessageIcon.png'),
+            InkWell(
+              onTap: () {
+                // 处理点击事件
+                Routes.instance!
+                    .navigateTo(context, Routes.workNotificationPage);
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10), // 设置圆角半径为10
                 ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('工单消息'),
-                    const Text('12:00',
-                        style: TextStyle(color: Color(0xFF8692A3))),
-                  ],
+                child: ListTile(
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('assets/workmessageIcon.png'),
+                  ),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('工单消息'),
+                      const Text('12:00',
+                          style: TextStyle(color: Color(0xFF8692A3))),
+                    ],
+                  ),
+                  subtitle: const Text(
+                    '消息内容',
+                    style: TextStyle(color: Color(0xFF8692A3)),
+                  ),
+                  // trailing: const Icon(Icons.arrow_forward_ios),
                 ),
-                subtitle: const Text(
-                  '消息内容',
-                  style: TextStyle(color: Color(0xFF8692A3)),
-                ),
-                // trailing: const Icon(Icons.arrow_forward_ios),
               ),
             ),
             Container(
@@ -252,7 +266,7 @@ class _OplMessagePageState extends State<OplMessagePage> {
                   ],
                 ),
                 subtitle: const Text(
-                  '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容',
+                  '消息内容',
                   style: TextStyle(color: Color(0xFF8692A3)),
                 ),
                 // trailing: const Icon(Icons.arrow_forward_ios),

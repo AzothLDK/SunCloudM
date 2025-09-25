@@ -7,12 +7,14 @@ import 'package:suncloudm/dao/storage.dart';
 
 const host = "https://api.smartwuxi.com/cny"; //地址
 
+// const host = "http://192.168.20.37:8616/cny"; //地址
+
 // const host = "http://192.168.1.126:8616/cny"; //地址
 // const host = "http://43.218.117.47:8616/cny"; //地址
 
 String? savedLanguage = GlobalStorage.getLanguage();
 
-var loginType; //登录形态 loginType; //登录形态
+var loginType; //登录形态 loginType;
 
 var isOperator = true; //账号角色
 
@@ -292,6 +294,9 @@ var oplGroupListUrl = "$host/maintenance/common/getGroupByUserId"; //运维班�
 
 var workOrderListUrl = "$host/maintenance/workOrder/workOrderList"; //工单列表
 
+//告警消息列表
+var alarmListUrl = "$host/alarm/alarmNewData";
+
 var getdetailsByWorkNumberUrl =
     "$host/maintenance/workOrder/detailsByWorkNumber"; //工单详情
 
@@ -325,6 +330,9 @@ var getWorkRankUrl = "$host/maintenance/index/countRank"; //获取工作列表�
 
 //修改工单
 var updateWorkOrderUrl = "$host/maintenance/workOrder/updateWorkOrder";
+
+//工单消息列表
+var workNotificationListUrl = "$host/workNotification/notificationList";
 
 //上传文件
 var fileUploadUrl = "$host/file/fileUpload";

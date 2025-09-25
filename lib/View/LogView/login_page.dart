@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svprogresshud/flutter_svprogresshud.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:suncloudm/View/OAM/op_index_page.dart';
 import 'package:suncloudm/View/OAM/opl_index_page.dart';
@@ -15,6 +16,11 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../dao/daoX.dart';
 import '../../dao/storage.dart';
 import '../index_page.dart';
+import 'package:suncloudm/utils/jpushutils.dart';
+
+final List<Permission> needPermissionList = [
+  Permission.notification,
+];
 
 class LoginPage extends StatefulWidget {
   final Function(Locale)? onLocaleChange;
@@ -51,6 +57,14 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  void checkPermission() async {
+    Map<Permission, PermissionStatus> statuses =
+        await needPermissionList.request();
+    statuses.forEach((key, value) {
+      print('$key premissionStatus is $value');
+    });
+  }
+
   final dio = Dio();
 
   void getHttp() async {
@@ -63,6 +77,8 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     getHttp();
     compareVersion();
+    checkPermission();
+    AppJPush.setBadge(0);
   }
 
   void compareVersion() async {
@@ -327,6 +343,7 @@ class _LoginPageState extends State<LoginPage> {
     log(data.toString());
     if (data["code"] == 200) {
       Map result = data["data"];
+      AppJPush.initialized(result["user"]['id'].toString(), context);
       GlobalStorage.saveToken(result["token"]);
       SVProgressHUD.dismiss();
       SVProgressHUD.setMinimumDismissTimeInterval(1.0);

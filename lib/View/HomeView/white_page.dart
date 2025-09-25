@@ -26,9 +26,9 @@ class _WhitePageState extends State<WhitePage> {
         body: HorizontaLine(
           direction: CurrentDirection.leftToRight,
           lineColor: Colors.grey[800]!,
-          currentColor: Color(0xFF24C18F),
+          currentColor: const Color(0xFF24C18F),
           currentCount: 4,
-          animationDuration: Duration(seconds: 3),
+          animationDuration: const Duration(seconds: 3),
         ));
   }
 }

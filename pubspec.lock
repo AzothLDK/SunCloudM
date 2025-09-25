@@ -501,6 +501,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.20.2"
+  jpush_flutter:
+    dependency: "direct main"
+    description:
+      name: jpush_flutter
+      sha256: "57c5d99e95eaa03e54fed822fb1f3b25dac7a45e90b4f992df28b22837897d34"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.3.7"
   js:
     dependency: transitive
     description:

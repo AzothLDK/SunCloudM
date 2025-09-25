@@ -48,6 +48,12 @@ class LoginDao {
     var r = await NetworkUtils.get(workTeamListUrl, params: params);
     return r;
   }
+  
+  //获取告警消息列表
+  static Future<Map> getAlarmList({Map<String, dynamic>? params}) async {
+    var r = await NetworkUtils.get(alarmListUrl, params: params);
+    return r;
+  }
 }
 
 class IndexDao {
@@ -776,6 +782,12 @@ class WorkDao {
   //获取工作列表排名
   static Future<Map> getWorkRank({Map<String, dynamic>? params}) async {
     var r = await NetworkUtils.get(getWorkRankUrl, params: params);
+    return r;
+  }
+  
+  //获取工单消息列表
+  static Future<Map> getWorkNotificationList({Map<String, dynamic>? params}) async {
+    var r = await NetworkUtils.get(workNotificationListUrl, params: params);
     return r;
   }
 }
