@@ -15,7 +15,6 @@ import 'package:suncloudm/View/OAM/oam_workspace/workingPage/op_workInfo_page.da
 import 'package:suncloudm/View/OAM/oam_workspace/workingPage/opl_workInfo_page.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/workingPage/opl_worklist_page.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/opl_workschedule_page.dart';
-import 'package:suncloudm/View/ProjectView/projectdetail_page.dart';
 import 'package:suncloudm/View/WorkspaceView/Alarm/alarmRL_page.dart';
 import 'package:suncloudm/View/WorkspaceView/Alarm/alarmSelete.dart';
 import 'package:suncloudm/View/WorkspaceView/ChartAnalysis/chartAnalysisZ_page.dart';
