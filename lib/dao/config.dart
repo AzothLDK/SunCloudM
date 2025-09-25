@@ -12,7 +12,6 @@ const host = "https://api.smartwuxi.com/cny"; //地址
 
 String? savedLanguage = GlobalStorage.getLanguage();
 
-// ignore: prefer_typing_uninitialized_variables
 var loginType; //登录形态 loginType; //登录形态
 
 var isOperator = true; //账号角色
