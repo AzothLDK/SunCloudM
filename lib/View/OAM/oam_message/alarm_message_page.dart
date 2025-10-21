@@ -29,7 +29,7 @@ class _AlarmMessagePageState extends State<AlarmMessagePage> {
       // SVProgressHUD.show();
       Map<String, dynamic> params = {
         "pageNum": 1,
-        "pageSize": 999,
+        "pageSize": 998,
         "alarmType": _currentTabIndex,
       };
       final result = await LoginDao.getAlarmList(params: params);
