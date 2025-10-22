@@ -1,7 +1,7 @@
 import 'package:date_format/date_format.dart' as date_format;
 import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import '../../../toolview/screentool.dart';
+import '../../../utils/screentool.dart';
 import 'package:suncloudm/toolview/imports.dart';
 
 class EleReportPage extends StatefulWidget {

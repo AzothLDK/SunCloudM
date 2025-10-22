@@ -49,7 +49,7 @@ class _OplOperationteamPageState extends State<OplOperationteamPage> {
         centerTitle: true,
       ),
       body: Container(
-        color: Color(0xFFEDF1F7),
+        color: const Color(0xFFEDF1F7),
         child: ListView.builder(
             itemCount: teamList.length,
             itemBuilder: (context, i) {

@@ -1,9 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:suncloudm/View/LogView/model/personalPageProvider.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/model/oplDataAnalysisProvider.dart';
 import 'package:suncloudm/generated/l10n.dart';
 import 'package:suncloudm/toolview/personal_info_provider.dart';
@@ -27,7 +25,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => PersonalPageProvider()),
         ChangeNotifierProvider(create: (_) => OplDataAnalysisProvider()),
         ChangeNotifierProvider(
             create: (_) => LanguageProvider()), // 添加LanguageProvider

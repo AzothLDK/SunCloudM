@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:suncloudm/dao/config.dart';
 import 'package:suncloudm/dao/daoX.dart';
 import 'package:suncloudm/routes/Routes.dart';
-import 'package:suncloudm/toolview/screentool.dart';
-import 'package:suncloudm/work_entity.dart';
+import 'package:suncloudm/utils/screentool.dart';
+import 'package:suncloudm/View/OAM/model/work_entity.dart';
 import 'package:suncloudm/generated/l10n.dart';
 
 class OplWorklistPage extends StatefulWidget {

@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:suncloudm/toolview/language_resource.dart';
-import 'package:suncloudm/toolview/language_switcher.dart';
 import 'package:suncloudm/toolview/personal_info_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../routes/Routes.dart';

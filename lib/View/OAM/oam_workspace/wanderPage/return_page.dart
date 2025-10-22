@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svprogresshud/flutter_svprogresshud.dart';
 import 'package:suncloudm/dao/daoX.dart';
-import 'package:suncloudm/work_entity.dart';
+import 'package:suncloudm/View/OAM/model/work_entity.dart';
 import 'package:suncloudm/generated/l10n.dart';
 
 class ReturnPage extends StatefulWidget {

@@ -7,7 +7,7 @@ import 'package:suncloudm/dao/daoX.dart';
 import 'package:suncloudm/dao/storage.dart';
 import 'package:suncloudm/generated/l10n.dart';
 import 'package:suncloudm/toolview/appColor.dart';
-import 'package:suncloudm/toolview/deviceTypeToName.dart';
+import 'package:suncloudm/utils/deviceTypeToName.dart';
 import 'package:suncloudm/toolview/language_resource.dart';
 
 class BossHomePage extends StatefulWidget {

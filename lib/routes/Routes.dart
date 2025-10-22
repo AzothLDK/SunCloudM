@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:suncloudm/View/HomeView/white_page.dart';
 import 'package:suncloudm/View/LogView/editpassword_page.dart';
-import 'package:suncloudm/View/LogView/test_page.dart';
 import 'package:suncloudm/View/OAM/oam_message/alarm_message_page.dart';
 import 'package:suncloudm/View/OAM/oam_message/work_notification_page.dart';
 import 'package:suncloudm/View/OAM/oam_mine/opl_operationteam_detail_page.dart';
@@ -124,11 +123,10 @@ class Routes {
 
   static const opWorkInfo = '/opWorkInfo';
 
-  static const testpage = '/testpage';
-
   static const oplDataAnalysis = '/oplDataAnalysis';
 
   static const alarmMessagePage = '/alarmMessagePage';
+
   static const workNotificationPage = '/workNotificationPage';
 
   void _config() {
@@ -323,9 +321,6 @@ class Routes {
     router.define(oplDataAnalysis,
         handler:
             Handler(handlerFunc: (context, params) => const OplDataAnalysis()));
-
-    router.define(testpage,
-        handler: Handler(handlerFunc: (context, params) => const TestPage()));
   }
 
   Future navigateTo(BuildContext context, String path, [String param = '']) {

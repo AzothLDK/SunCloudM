@@ -3,7 +3,7 @@ import 'package:flutter_echarts/flutter_echarts.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 import 'package:suncloudm/toolview/appColor.dart';
-import 'package:suncloudm/toolview/deviceTypeToName.dart';
+import 'package:suncloudm/utils/deviceTypeToName.dart';
 import 'package:suncloudm/toolview/imports.dart';
 
 class JcHomePage extends StatefulWidget {

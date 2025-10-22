@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suncloudm/dao/daoX.dart';
-import 'package:suncloudm/toolview/screentool.dart';
+import 'package:suncloudm/utils/screentool.dart';
 
 class SettlementdetailCnPage extends StatefulWidget {
   final String settleId;

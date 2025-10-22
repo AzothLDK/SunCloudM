@@ -11,7 +11,7 @@ import 'package:suncloudm/dao/daoX.dart';
 import 'package:suncloudm/dao/storage.dart';
 import 'package:suncloudm/routes/Routes.dart';
 import 'package:suncloudm/toolview/custom_view.dart';
-import '../../../toolview/screentool.dart';
+import '../../../utils/screentool.dart';
 import 'package:suncloudm/generated/l10n.dart';
 
 //光伏监测

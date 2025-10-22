@@ -15,8 +15,8 @@ import 'package:suncloudm/View/OAM/oam_workspace/wanderPage/preview_networkfile_
 import 'package:suncloudm/View/OAM/oam_workspace/wanderPage/return_page.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/wanderPage/seleteMedia_view.dart';
 import 'package:suncloudm/dao/daoX.dart';
-import 'package:suncloudm/toolview/screentool.dart';
-import 'package:suncloudm/work_entity.dart';
+import 'package:suncloudm/utils/screentool.dart';
+import 'package:suncloudm/View/OAM/model/work_entity.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:suncloudm/generated/l10n.dart';
 

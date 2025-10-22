@@ -7,7 +7,7 @@ import 'package:flutter_svprogresshud/flutter_svprogresshud.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:suncloudm/View/OAM/oam_workspace/wanderPage/preview_asset_widget.dart';
 import 'package:suncloudm/toolview/custom_view.dart';
-import 'package:suncloudm/toolview/permissionUtil.dart';
+import 'package:suncloudm/utils/permissionUtil.dart';
 import 'package:suncloudm/generated/l10n.dart';
 
 import 'package:video_player/video_player.dart';

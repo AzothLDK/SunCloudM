@@ -11,7 +11,7 @@ import 'package:suncloudm/View/HomeView/wwsingle_home_page.dart';
 import 'package:suncloudm/View/HomeView/yys_home_page.dart';
 import 'package:suncloudm/dao/daoX.dart';
 import '../dao/storage.dart';
-import 'HomeView/home_page.dart';
+import 'HomeView/OldHomeView/home_page.dart';
 import 'LogView/personal_page.dart';
 import 'ProjectView/projectlist_page.dart';
 import 'WorkspaceView/workspacehome_page.dart';

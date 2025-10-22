@@ -5,26 +5,25 @@ import 'package:flutter_echarts/flutter_echarts.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:suncloudm/dao/config.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import '../../dao/daoX.dart';
-import '../../dao/storage.dart';
+import '../../../dao/daoX.dart';
+import '../../../dao/storage.dart';
 
-class PhotovoltaicViewPage extends StatefulWidget {
+class StorageViewPage extends StatefulWidget {
   final Map pageData;
 
-  const PhotovoltaicViewPage({super.key, required this.pageData});
+  const StorageViewPage({super.key, required this.pageData});
 
   @override
-  State<PhotovoltaicViewPage> createState() => _PhotovoltaicViewPageState();
+  State<StorageViewPage> createState() => _StorageViewPageState();
 }
 
-class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
+class _StorageViewPageState extends State<StorageViewPage>
     with SingleTickerProviderStateMixin {
   final List<Tab> selTabs = <Tab>[
     const Tab(text: '电量'),
     const Tab(text: '收益'),
   ];
   TabController? selController;
-
   Map userInfo = jsonDecode(GlobalStorage.getLoginInfo()!);
 
   int _currentDateType = 0;
@@ -34,7 +33,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
   Map<String, dynamic> eleChartData = {};
   Map<String, dynamic> rewardChartData = {};
 
-  Future<Map<String, dynamic>> getindexPVLineChart() async {
+  Future<Map<String, dynamic>> getindexDSYLineChart() async {
     Map<String, dynamic> params = {};
     params['beginDate'] = startDate;
     params['endDate'] = endDate;
@@ -42,7 +41,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
     if (singleId != null) {
       params["itemId"] = singleId;
     }
-    var data = await IndexDao.getindexPVLineChart(params: params);
+    var data = await IndexDao.getindexDSYLineChart(params: params);
     debugPrint(data.toString());
     if (data["code"] == 200) {
       if (data['data'] != null) {
@@ -55,7 +54,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
     }
   }
 
-  Future<Map<String, dynamic>> getindexPVLineChart2() async {
+  Future<Map<String, dynamic>> getindexDSYLineChart2() async {
     Map<String, dynamic> params = {};
     params['beginDate'] = startDate;
     params['endDate'] = endDate;
@@ -63,7 +62,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
     if (singleId != null) {
       params["itemId"] = singleId;
     }
-    var data = await IndexDao.getindexPVLineChart(params: params);
+    var data = await IndexDao.getindexDSYLineChart(params: params);
     debugPrint(data.toString());
     if (data["code"] == 200) {
       if (data['data'] != null) {
@@ -87,7 +86,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
 
   @override
   Widget build(BuildContext context) {
-    Map pv = widget.pageData['pv'] ?? {};
+    Map storage = widget.pageData['storage'] ?? {};
     return Container(
       padding: const EdgeInsets.all(10.0),
       child: Column(
@@ -119,9 +118,9 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _cellView("投运时间", '${pv['builtTime'] ?? '--'}'),
+                      _cellView("投运时间", '${storage['builtTime'] ?? '--'}'),
                       const SizedBox(width: 15),
-                      _cellView("运行天数(天)", '${pv['builtDays'] ?? '--'}'),
+                      _cellView("运行天数(天)", '${storage['builtDays'] ?? '--'}'),
                     ],
                   ),
                 ),
@@ -130,10 +129,10 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _cellView("当日/月收益(元/万元)",
-                        "${pv['todayIncome'] ?? '--'} /${pv['thisMonthIncome'] ?? '--'}"),
+                        "${storage['todayIncome'] ?? '--'} /${storage['thisMonthIncome'] ?? '--'}"),
                     const SizedBox(width: 15),
                     _cellView("当年/累计收益(万元)",
-                        "${pv['thisYearIncome'] ?? '--'} /${pv['totalIncome'] ?? '--'}"),
+                        "${storage['thisYearIncome'] ?? '--'} /${storage['totalIncome'] ?? '--'}"),
                   ],
                 ),
               ],
@@ -166,39 +165,35 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _cellView("今日发电量(kWh)", "${pv['todayEle'] ?? '--'}"),
+                    _cellView(
+                        "今日充电量(kWh)", '${storage['todayChargeEle'] ?? '--'}'),
                     const SizedBox(width: 15),
-                    _cellView("今日上网电量(kWh)", "${pv['todayGrid'] ?? '--'}"),
+                    _cellView("今日放电量(kWh)",
+                        '${storage['todayDisChargeEle'] ?? '--'}'),
                   ],
                 ),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _cellView("累计总发电量(MWh)", "${pv['totalEle'] ?? '--'}"),
+                    _cellView(
+                        "累计总充电量(MWh)", '${storage['allChargeEle'] ?? '--'}'),
                     const SizedBox(width: 15),
-                    _cellView("累计总上网电量(MWh)", "${pv['totalGrid'] ?? '--'}"),
+                    _cellView(
+                        "累计总放电量(MWh)", '${storage['allDisChargeEle'] ?? '--'}'),
                   ],
                 ),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _cellView("累计消纳率", "${pv['totalRate'] ?? '--'}%"),
+                    _cellView("储能转换效率", '${storage['convert'] ?? '--'}%'),
                     const SizedBox(width: 15),
-                    _cellView("当月绿电率", "${pv['thisMonthRate'] ?? '--'}%"),
+                    _cellView("当月/累计碳排放(t)",
+                        "${storage['thisMonthCarbon'] ?? '--'} /${storage['totalCarbon'] ?? '--'}"),
                   ],
                 ),
                 const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _cellView("当月/累计碳减排(t)",
-                        "${pv['thisMonthCarbon'] ?? '--'} /${pv['totalCarbon'] ?? '--'}"),
-                    const SizedBox(width: 15),
-                    Expanded(child: Container())
-                  ],
-                )
               ],
             ),
           ),
@@ -226,7 +221,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(0.0),
                   child: Container(
                     color: Colors.white,
                     child: Column(
@@ -434,7 +429,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
         ),
         const SizedBox(height: 10),
         FutureBuilder(
-            future: getindexPVLineChart(),
+            future: getindexDSYLineChart(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 xdata = eleChartData['xaxis'];
@@ -451,9 +446,10 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                     "legend": {
                       "textStyle": {"fontSize": 12, "color": '#333'},
                       "itemGap": 10,
-                      "data": ['发电量', '上网电量', '消纳率'],
+                      "data": ['充电量', '放电量', '充放电效率'],
                       "inactiveColor": '#ccc'
                     },
+                    "grid": {"left": 50},
                     "xAxis": {
                       "type": 'category',
                       "data": xdata,
@@ -471,19 +467,19 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                     ],
                     "series": [
                       {
-                        'name': '发电量',
+                        'name': '充电量',
                         "data": yaxis,
                         "type": 'bar',
                         "color": '#3D71FD'
                       },
                       {
-                        'name': '上网电量',
+                        'name': '放电量',
                         "data": yaxis1,
                         "type": 'bar',
                         "color": '#FBAF38'
                       },
                       {
-                        'name': '消纳率',
+                        'name': '充放电效率',
                         "data": yaxis2,
                         "yAxisIndex": '1',
                         "smooth": true, // 是否让线条圆滑显示
@@ -662,7 +658,7 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
         ),
         const SizedBox(height: 10),
         FutureBuilder(
-            future: getindexPVLineChart2(),
+            future: getindexDSYLineChart2(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 xdata = rewardChartData['xaxis'];
@@ -679,9 +675,10 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                     "legend": {
                       "textStyle": {"fontSize": 12, "color": '#333'},
                       "itemGap": 10,
-                      "data": ['消纳收益', '上网收益', '总收益'],
+                      "data": ['充电成本', '放电收益', '总收益'],
                       "inactiveColor": '#ccc'
                     },
+                    "grid": {"left": 50},
                     "xAxis": {
                       "type": 'category',
                       "data": xdata,
@@ -694,13 +691,13 @@ class _PhotovoltaicViewPageState extends State<PhotovoltaicViewPage>
                     ],
                     "series": [
                       {
-                        'name': '消纳收益',
+                        'name': '充电成本',
                         "data": yaxis,
                         "type": 'bar',
                         "color": '#3D71FD'
                       },
                       {
-                        'name': '上网收益',
+                        'name': '放电收益',
                         "data": yaxis1,
                         "type": 'bar',
                         "color": '#FBAF38'
